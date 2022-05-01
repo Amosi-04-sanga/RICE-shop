@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+
+.logo {
+    font-family: 'Square Peg', cursive;
+    font-weight: 900;
+    font-style: oblique;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4vw;
+    height: 10vh;
+    box-shadow: 0 0 5px 0 grey;
+    z-index: 11;
+}
+
+.links {
+    display: flex;
+    width: 50vw;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: capitalize;
+}
+.links li:hover {
+    text-decoration: underline;
+}
+
+.fullWidth {
+    width: 80vw;
+}
+
+
+@media screen and (max-width: 500px) {
+    .links {
+        width: 80vw;
+        justify-content: flex-end;
+    }
+
+    .fullWidth {
+        width: 100vw;
+    }
+
+    .links li {
+        margin-right: 4vw;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .nav {
+        padding: 0 .3rem;
+    }
+}

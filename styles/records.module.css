@@ -1,0 +1,10 @@
+.list {
+    list-style-type: decimal-leading-zero;
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.list li {
+    margin: 2rem 0;
+    background-color: aliceblue;
+}

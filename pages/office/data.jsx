@@ -16,7 +16,6 @@ const Data = () => {
         await axios.get("/api/purchases")
           .then(res => {
             const { data } = res
-            console.log(data)
             setPurchases(data)
           })
 

@@ -24,3 +24,8 @@ ul {
 .container {
   height: 90vh;
 }
+
+button {
+  border: none;
+  outline: none;
+}

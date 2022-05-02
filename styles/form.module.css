@@ -41,11 +41,14 @@
 }
 
 .button {
-    margin: 1rem auto;
+    margin: 1.2rem auto;
     display: block;
     background-color: rgba(25, 134, 119, .8);
     cursor: pointer;
-    padding: .6rem .8rem;
+    padding: 1rem 1.8rem;
+    color: wheat;
+    border-radius: .4rem;
+    transition: background-color 200ms ease-in-out;
 }
 
 .button:hover {
@@ -58,14 +61,42 @@
     margin: 4rem 0 2rem;
 }
 
-.add {
-    width: 6vw;
-    height: 8vw;
-    position: fixed;
-    right: 5vw;
-    top: 2vh;
+.toggleForm {
+    position: relative;
+    height: 13vh;
+}
+
+.addIcon {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 8vw;
+    height: 10vw;
     fill: rgb(88, 119, 22);
     cursor: pointer;
 }
 
+.showForm {
+  display: block;
+}
 
+.hideForm {
+  display: none;
+}
+
+.calculator {
+    width: 10vw;
+    height: 10vw;
+    fill: rgba(0, 128, 0, 0.607);
+    position: fixed;
+    left: 1px;
+    top: 2px;
+    z-index: 11;
+    cursor: pointer;
+    transition: fill 200ms ease-in-out;
+}
+
+.calculator:hover {
+    fill: rgba(0, 128, 0, 1);
+}

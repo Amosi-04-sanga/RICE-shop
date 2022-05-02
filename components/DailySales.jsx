@@ -1,13 +1,13 @@
 import styles from '../styles/form.module.css'
 import Link from "next/link"
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import { useState } from 'react';
 import axios from 'axios';
 
 
 const PurchasesForm = () => {
     const [isSubmited, setIsSubmited] = useState(false)
+    const [shown, setShown] = useState(false)
     const [formData, setFormData] = useState({
         amount: "",
         sales: "",
@@ -56,12 +56,16 @@ const PurchasesForm = () => {
     }
 
     const addBorrower = () => {
-        console.log("added")
+        setShown(!shown)
+    }
+
+    const calculatorHandle = () => {
+        console.log("net profit")
     }
 
     return (
         <div className={styles.login} >
-            <svg onClick={addBorrower} className={styles.add} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM390.6 246.6l-112 112C272.4 364.9 264.2 368 256 368s-16.38-3.125-22.62-9.375l-112-112c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L256 290.8l89.38-89.38c12.5-12.5 32.75-12.5 45.25 0S403.1 234.1 390.6 246.6z" /></svg>
+            <svg onClick={calculatorHandle} className={styles.calculator} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M336 0h-288C22.38 0 0 22.38 0 48v416C0 489.6 22.38 512 48 512h288c25.62 0 48-22.38 48-48v-416C384 22.38 361.6 0 336 0zM64 208C64 199.2 71.2 192 80 192h32C120.8 192 128 199.2 128 208v32C128 248.8 120.8 256 112 256h-32C71.2 256 64 248.8 64 240V208zM64 304C64 295.2 71.2 288 80 288h32C120.8 288 128 295.2 128 304v32C128 344.8 120.8 352 112 352h-32C71.2 352 64 344.8 64 336V304zM224 432c0 8.801-7.199 16-16 16h-128C71.2 448 64 440.8 64 432v-32C64 391.2 71.2 384 80 384h128c8.801 0 16 7.199 16 16V432zM224 336c0 8.801-7.199 16-16 16h-32C167.2 352 160 344.8 160 336v-32C160 295.2 167.2 288 176 288h32C216.8 288 224 295.2 224 304V336zM224 240C224 248.8 216.8 256 208 256h-32C167.2 256 160 248.8 160 240v-32C160 199.2 167.2 192 176 192h32C216.8 192 224 199.2 224 208V240zM320 432c0 8.801-7.199 16-16 16h-32c-8.799 0-16-7.199-16-16v-32c0-8.801 7.201-16 16-16h32c8.801 0 16 7.199 16 16V432zM320 336c0 8.801-7.199 16-16 16h-32c-8.799 0-16-7.199-16-16v-32C256 295.2 263.2 288 272 288h32C312.8 288 320 295.2 320 304V336zM320 240C320 248.8 312.8 256 304 256h-32C263.2 256 256 248.8 256 240v-32C256 199.2 263.2 192 272 192h32C312.8 192 320 199.2 320 208V240zM320 144C320 152.8 312.8 160 304 160h-224C71.2 160 64 152.8 64 144v-64C64 71.2 71.2 64 80 64h224C312.8 64 320 71.2 320 80V144z" /></svg>
 
             <h3 className={styles.formHeading} >daily sales details</h3>
             <div className={styles.formWrapper}>
@@ -106,16 +110,18 @@ const PurchasesForm = () => {
                         />
                     </div>
 
-                    <Button type='submit' className={styles.button} variant="contained" >
-                        <Link href="/office/data" >
-                            {!isSubmited ? "SEND" : "PROCESSING..."}
-                        </Link>
-                    </Button>
+                    <button type='submit' className={styles.button} >
+                        {!false ? "SEND" : "PROCESSING..."}
+                    </button>
 
                 </form>
             </div>
 
-            <div className={styles.borrowersForm}>
+            <div className={`${styles.toggleForm}`}>
+                <svg onClick={addBorrower} className={styles.addIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM390.6 246.6l-112 112C272.4 364.9 264.2 368 256 368s-16.38-3.125-22.62-9.375l-112-112c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L256 290.8l89.38-89.38c12.5-12.5 32.75-12.5 45.25 0S403.1 234.1 390.6 246.6z" /></svg>
+            </div>
+
+            <div className={`${styles.borrowersForm} ${shown ? styles.showForm : styles.hideForm} `}>
                 <h3>borrowers details</h3>
                 <form onSubmit={submitBorrowersHandle} className={styles.form} autoCorrect="true" autoComplete="false" >
                     <div className={styles.row}>
@@ -171,11 +177,9 @@ const PurchasesForm = () => {
                         />
                     </div>
 
-                    <Button type='submit' className={styles.button} variant="contained" >
-                        <Link href="/office/data" >
-                            {!isSubmited ? "SEND" : "PROCESSING..."}
-                        </Link>
-                    </Button>
+                    <button type='submit' className={styles.button} >
+                        {!false ? "SEND" : "PROCESSING..."}
+                    </button>
 
                 </form>
             </div>

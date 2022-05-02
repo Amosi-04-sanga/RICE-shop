@@ -1,7 +1,6 @@
 import styles from '../styles/form.module.css'
 import Link from "next/link"
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import { useState } from 'react';
 
 
@@ -20,7 +19,7 @@ const PurchasesForm = () => {
             <div className={styles.formWrapper}>
                 <form onSubmit={submitHandle} className={styles.form} autoCorrect="true" autoComplete="false" >
                     <div className={styles.row}>
-                        <label className={styles.label} htmlFor="amount">Enter your amount(KGS)</label>
+                        <label className={styles.label} htmlFor="amount">Enter amount(KGS)</label>
                         <TextField
                             required
                             id="amount"
@@ -53,11 +52,11 @@ const PurchasesForm = () => {
                         />
                     </div>
 
-                    <Button type='submit' className={styles.button} variant="contained" >
-                            <Link href="/office/data" >
-                            {!isSubmited ? "SEND" : "PROCESSING..."}
-                            </Link>
-                    </Button>
+                    <button type='submit' className={styles.button} >
+                        <Link href="/office/data" >
+                            {!isSubmited ? "LOGIN" : "PROCESSING..."}
+                        </Link>
+                    </button>
 
                 </form>
             </div>

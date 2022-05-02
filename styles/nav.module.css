@@ -15,8 +15,11 @@
     align-items: center;
     padding: 0 4vw;
     height: 10vh;
-    box-shadow: 0 0 5px 0 grey;
+    box-shadow: 0 0 8px 0 grey;
+    background-color: rgba(219, 218, 192, .9);
     z-index: 11;
+    position: sticky;
+    top: 0;
 }
 
 .links {
@@ -32,7 +35,7 @@
 }
 
 .fullWidth {
-    width: 80vw;
+    width: 70vw;
 }
 
 

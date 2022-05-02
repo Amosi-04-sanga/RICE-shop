@@ -1,0 +1,54 @@
+.salesContainer {
+    width: 60vw;
+    font-family: cursive;
+    margin: 2rem auto;
+}
+
+.heading {
+    margin: 1rem auto;
+}
+
+.salesInfo p {
+   padding: 1rem .2rem;
+   position: relative;
+}
+
+.salesInfo p::before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 22px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid rgb(70, 11, 106);
+  transform: rotate(45deg);    
+}
+
+.borrowers {
+    margin: 2rem auto;
+}
+.list {
+    padding-bottom: 2rem;
+}
+.listItem {
+    margin: .8rem 0;
+    position: relative;
+    border-left: .2rem solid grey;
+    padding: .4rem;
+    border-radius: .2rem;
+}
+
+.button {
+    padding: .3rem .8rem;
+    cursor: pointer;
+    position: absolute;
+    right: 40%;
+    top: 50%;
+    text-transform: uppercase;
+    transform: translate(-40%, -50%);
+    background-color: rgb(140, 203, 203);
+    transition: background-color 200ms ease-in-out;
+}
+.button:hover {
+    background-color: rgba(0, 255, 255, 0.534);
+}

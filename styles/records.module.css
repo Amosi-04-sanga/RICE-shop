@@ -1,10 +1,36 @@
+
+.salesDetails {
+    display: grid;
+    place-content: center;
+    font-family: cursive;
+}
+
 .list {
-    list-style-type: decimal-leading-zero;
-    padding: 2rem;
+    padding: 1rem;
     cursor: pointer;
+    width: 70vw;
 }
 
 .list li {
-    margin: 2rem 0;
-    background-color: aliceblue;
+    margin: 1rem 0;
+    padding: .5rem;
+    background-color: rgb(195, 224, 223);
+
+}
+
+.alignLeft {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.listItem {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: decimal;
+    padding: 0 4vw;
+}
+
+.borrowers {
+    color: orangered;
 }

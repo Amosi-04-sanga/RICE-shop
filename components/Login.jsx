@@ -1,7 +1,6 @@
 import styles from '../styles/form.module.css'
 import Link from "next/link"
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import { useState } from 'react';
 
 
@@ -40,11 +39,11 @@ const Login = () => {
                         />
                     </div>
 
-                    <Button type='submit' className={styles.button} variant="contained" >
+                    <button type='submit' className={styles.button} >
                             <Link href="/office/data" >
                             {!isLoggedIn ? "LOGIN" : "PROCESSING..."}
                             </Link>
-                    </Button>
+                    </button>
 
                 </form>
             </div>
@@ -53,3 +52,5 @@ const Login = () => {
 }
 
 export default Login
+
+

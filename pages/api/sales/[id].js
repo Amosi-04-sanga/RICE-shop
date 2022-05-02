@@ -31,7 +31,7 @@ export default async function handler(req, res) {
 
         case "PATCH":
             try {
-                const purchases = await PurchasesModel.findById(id)
+                const purchases = await SalesModel.findById(id)
                     .then(doc => {
                         doc.amount = body.amount
                         doc.price = body.price

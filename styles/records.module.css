@@ -11,6 +11,12 @@
     width: 70vw;
 }
 
+@media screen and (max-width: 400px) {
+    .list {
+        width: 90vw;
+    }
+}
+
 .list li {
     margin: 1rem 0;
     padding: .5rem;

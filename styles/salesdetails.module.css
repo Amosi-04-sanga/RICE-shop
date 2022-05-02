@@ -9,8 +9,8 @@
 }
 
 .salesInfo p {
-   padding: 1rem .2rem;
-   position: relative;
+    padding: 1rem .2rem;
+    position: relative;
 }
 
 .salesInfo p::before {
@@ -21,15 +21,17 @@
     width: 10px;
     height: 10px;
     border: 2px solid rgb(70, 11, 106);
-  transform: rotate(45deg);    
+    transform: rotate(45deg);
 }
 
 .borrowers {
     margin: 2rem auto;
 }
+
 .list {
     padding-bottom: 2rem;
 }
+
 .listItem {
     margin: .8rem 0;
     position: relative;
@@ -49,6 +51,21 @@
     background-color: rgb(140, 203, 203);
     transition: background-color 200ms ease-in-out;
 }
+
 .button:hover {
     background-color: rgba(0, 255, 255, 0.534);
+}
+
+@media screen and (max-width: 622px) {
+    .button {
+        right: 10%;
+        transform: translate(-10%, -50%);
+    }
+}
+
+@media screen and (max-width: 377px) {
+    .button {
+        right: -10%;
+        transform: translate(10%, -50%);
+    }
 }

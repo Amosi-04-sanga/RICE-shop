@@ -10,8 +10,8 @@ export default function Home() {
       </Head>
       < Nav />
 
-      <h1 style={{textAlign: "center", lineHeight: "45vh", fontFamily: "cursive"}} > {moment(new Date()).format("MMMM Do YYYY")} </h1>
-      
+      <h1 style={{ textAlign: "center", lineHeight: "45vh" }} > {moment(new Date()).format("MMMM Do YYYY")} </h1>
+
     </div>
   )
 }

@@ -3,11 +3,14 @@ import Link from "next/link"
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 
 const PurchasesForm = () => {
-    const [isSubmited, setIsSubmited] = useState(false)
+    const router = useRouter()
     const [shown, setShown] = useState(false)
+    const [sendSales, setSendSales] = useState(false)
+    const [sendBorrowers, setsendBorrowers] = useState(false)
     const [formData, setFormData] = useState({
         amount: "",
         sales: "",
@@ -20,16 +23,21 @@ const PurchasesForm = () => {
         loan: ""
     })
 
-    const submitSalesHandle = async e => {
+    const submitSalesHandle = async (e) => {
         e.preventDefault()
-        setIsSubmited(true)
+        setSendSales(true)
 
         try {
             await axios.post("/api/sales", formData)
                 .then(doc => {
                     const { data } = doc
                     console.log(data)
-                    setIsSubmited(false)
+                    setFormData({
+                        amount: "",
+                        sales: "",
+                        expenses: ""
+                    })
+                    router.push("/office/records")
                 })
         } catch (error) {
             console.log(error)
@@ -37,22 +45,27 @@ const PurchasesForm = () => {
 
     }
 
-    const submitBorrowersHandle = async e => {
+    const submitBorrowersHandle = async (e) => {
         e.preventDefault()
+        setsendBorrowers(true)
 
+        try {
+            await axios.patch("/api/sales/borrowers", borrowerData)
+                .then(res => {
+                    const { data } = res
+                    console.log(data)
+                    setBorrowerData({
+                        name: "",
+                        tell: "",
+                        amount: "",
+                        loan: ""
+                    })
+                    router.push("/office/records")
+                })
 
-        await axios.patch("/api/sales/borrowers", borrowerData)
-            .then(res => {
-                const { data } = res
-                console.log(data)
-            })
-
-        setBorrowerData({
-            name: "",
-            tell: "",
-            amount: "",
-            loan: ""
-        })
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     const addBorrower = () => {
@@ -60,7 +73,7 @@ const PurchasesForm = () => {
     }
 
     const calculatorHandle = () => {
-        console.log("net profit")
+        router.push("/office/pin")
     }
 
     return (
@@ -111,7 +124,7 @@ const PurchasesForm = () => {
                     </div>
 
                     <button type='submit' className={styles.button} >
-                        {!false ? "SEND" : "PROCESSING..."}
+                        {!sendSales ? "SEND" : "PROCESSING..."}
                     </button>
 
                 </form>
@@ -178,7 +191,7 @@ const PurchasesForm = () => {
                     </div>
 
                     <button type='submit' className={styles.button} >
-                        {!false ? "SEND" : "PROCESSING..."}
+                        {!sendBorrowers ? "SEND" : "PROCESSING..."}
                     </button>
 
                 </form>

@@ -86,9 +86,9 @@
 }
 
 .calculator {
-    width: 10vw;
-    height: 10vw;
-    fill: rgba(0, 128, 0, 0.607);
+    width: 8vw;
+    height: 8vw;
+    fill: rgba(0, 128, 0, 0.52);
     position: fixed;
     left: 1px;
     top: 2px;
@@ -98,5 +98,13 @@
 }
 
 .calculator:hover {
-    fill: rgba(0, 128, 0, 1);
+    fill: rgba(0, 128, 0, 0.6);
 }
+
+@media screen and ( max-width: 550px ) {
+    .calculator {
+        width: 10vw;
+        height: 10vw;
+    }
+}
+

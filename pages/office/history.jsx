@@ -6,7 +6,7 @@ const History = () => {
     return (
         <>
             < OfficeNav />
-            <h1>previous bussiness records</h1>
+            <h1>all bussiness records here ...</h1>
         </>
     )
 }

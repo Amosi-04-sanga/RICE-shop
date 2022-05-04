@@ -15,15 +15,7 @@ export default async function handler(req, res) {
 
         case "PATCH":
             try {
-
-                const sales = await SalesModel.findById(id)
-                .then( doc => {
-                    doc.borrowers[index].loan = doc.borrowers[index].loan - body.amount
-                    doc.save( error => console.log(error) )
-                })
-                
-                res.json(sales)
-                    
+               
 
             } catch (error) {
                 res.status(400).json(error)

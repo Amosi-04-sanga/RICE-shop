@@ -18,10 +18,11 @@ export default async function handler(req, res) {
 
         await SalesModel.find()
           .then(doc => {
-            doc[0].borrowers.push(body)
-            doc[0].save(error => console.log(error))
+            const last = doc[doc.length - 1]
+            last.borrowers.push(body)
+            last.save(error => console.log(error))
             console.log("borrower saved to database");
-            res.status(200).json(doc[0])
+            res.status(200).json(last)
           })
 
 

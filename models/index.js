@@ -40,6 +40,22 @@ const salesSchema = new Schema({
     }
 })
 
+const TotalsalesSchema = new Schema({
+    totalamount: {
+        type: String,
+        required: [true, "Enter amount sold in KG"]
+    },
+    totalsales: {
+        type: String,
+        required: [true, "Enter sales"]
+    },
+    borrowers: [Object],
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+})
+
 
 export const PurchasesModel = mongoose.models.PURCHASES || mongoose.model('PURCHASES', purchasesSchema)
 

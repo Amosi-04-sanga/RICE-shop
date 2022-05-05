@@ -1,16 +1,40 @@
 import styles from '../styles/form.module.css'
-import Link from "next/link"
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
 
 const PurchasesForm = () => {
+    const router = useRouter()
     const [isSubmited, setIsSubmited] = useState(false)
+    const [formData, setFormData] = useState({
+        amount: "",
+        price: "",
+        expenses: ""
+    })
 
-    const submitHandle = e => {
+    const submitHandle = async e => {
         e.preventDefault()
         setIsSubmited(!isSubmited)
-        console.log("form data submited!")
+
+
+        try {
+            await axios.post("/api/purchases", formData)
+                .then(doc => {
+                    const { data } = doc
+                    console.log(data)
+                    setFormData({
+                        amount: "",
+                        price: "",
+                        expenses: ""
+                    })
+                    router.push("/office/records")
+                })
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 
     return (
@@ -27,6 +51,8 @@ const PurchasesForm = () => {
                             label="amount"
                             placeholder='example 20000'
                             className={styles.input}
+                            value={formData.amount}
+                            onChange={e => setFormData({ ...formData, amount: e.target.value })}
                         />
                     </div>
                     <div className={styles.row}>
@@ -38,6 +64,8 @@ const PurchasesForm = () => {
                             label="price"
                             className={styles.input}
                             placeholder="example 25000000"
+                            value={formData.price}
+                            onChange={e => setFormData({ ...formData, price: e.target.value })}
                         />
                     </div>
                     <div className={styles.row}>
@@ -49,13 +77,13 @@ const PurchasesForm = () => {
                             label="expenses"
                             className={styles.input}
                             placeholder="example 250000"
+                            value={formData.expenses}
+                            onChange={e => setFormData({ ...formData, expenses: e.target.value })}
                         />
                     </div>
 
                     <button type='submit' className={styles.button} >
-                        <Link href="/office/data" >
-                            {!isSubmited ? "LOGIN" : "PROCESSING..."}
-                        </Link>
+                        {!isSubmited ? "SEND" : "PROCESSING..."}
                     </button>
 
                 </form>
@@ -65,3 +93,4 @@ const PurchasesForm = () => {
 }
 
 export default PurchasesForm
+

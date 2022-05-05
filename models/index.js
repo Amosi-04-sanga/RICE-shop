@@ -40,14 +40,24 @@ const salesSchema = new Schema({
     }
 })
 
-const TotalsalesSchema = new Schema({
-    totalamount: {
+const profitSchema = new Schema({
+    amountBought: {
         type: String,
-        required: [true, "Enter amount sold in KG"]
     },
-    totalsales: {
+    amountSold: {
         type: String,
-        required: [true, "Enter sales"]
+    },
+    sales: {
+        type: String,
+    },
+    purchases: {
+        type: String,
+    },
+    profit: {
+        type: String,
+    },
+    days: {
+        type: String
     },
     borrowers: [Object],
     createdAt: {
@@ -57,7 +67,10 @@ const TotalsalesSchema = new Schema({
 })
 
 
+export const profitModel = mongoose.models.PROFIT || mongoose.model('PROFIT', profitSchema)
+
 export const PurchasesModel = mongoose.models.PURCHASES || mongoose.model('PURCHASES', purchasesSchema)
 
 export const SalesModel = mongoose.models.SALES || mongoose.model('SALES', salesSchema)
+
 

@@ -1,8 +1,8 @@
 import axios from "axios"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import OfficeNav from '../../components/OfficeNav'
-import styles from '../../styles/records.module.css'
+import OfficeNav from '../../../components/OfficeNav'
+import styles from '../../../styles/records.module.css'
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import moment from 'moment'

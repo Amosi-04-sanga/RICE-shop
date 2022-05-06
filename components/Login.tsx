@@ -1,18 +1,34 @@
 import styles from '../styles/form.module.css'
-import Link from "next/link"
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import axios from 'axios';
+import jwt from 'jsonwebtoken'
 
 
 const Login = () => {
     const router = useRouter()
 
-    const submitHandle = e => {
+    const [formData, setFormData] = useState({
+        name: "",
+        password: ""
+    })
+    const submitHandle = async (e: { preventDefault: () => void; }) => {
         e.preventDefault()
-        console.log("form data submited!")
 
-        router.push("/office/data")
+        await axios.post("/api/login", formData)
+            .then(res => {
+                const { data } = res
+                const token = data.token
+
+                const json = jwt.decode(token) as { [KEY: string]: Boolean }
+
+                if (json.user) {
+                    router.push("/office/data")
+                }
+
+            })
+
     }
 
     return (
@@ -23,11 +39,13 @@ const Login = () => {
                         <label className={styles.label} htmlFor="email">Enter your email</label>
                         <TextField
                             required
-                            id="email"
-                            type="email"
-                            label="email"
-                            placeholder='Enter email'
+                            id="text"
+                            type="name"
+                            label="name"
+                            placeholder='Enter scret name'
                             className={styles.input}
+                            value={formData.name}
+                            onChange={e => setFormData({ ...formData, name: e.target.value })}
                         />
                     </div>
                     <div className={styles.row}>
@@ -38,6 +56,8 @@ const Login = () => {
                             type="password"
                             label="password"
                             className={styles.input}
+                            value={formData.password}
+                            onChange={e => setFormData({ ...formData, password: e.target.value })}
                         />
                     </div>
 

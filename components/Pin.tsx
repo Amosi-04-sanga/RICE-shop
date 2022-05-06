@@ -2,15 +2,32 @@ import styles from '../styles/form.module.css'
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import axios from 'axios';
+import jwt from 'jsonwebtoken';
 
 
 const Close = () => {
     const router = useRouter()
     const [password, setPassword] = useState("")
-    const submitHandle = e => {
+    const submitHandle = async (e: { preventDefault: () => void; }) => {
         e.preventDefault()
 
-        router.push("/office/close")
+        try {
+            await axios.post("/api/closePin", { password })
+                .then(res => {
+                    const { data } = res
+                    const token = data.token
+
+                    const json = jwt.decode(token) as { [KEY: string]: Boolean }
+
+                    if (json.user) {
+                        router.push("/office/close")
+                    }
+
+                })
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (

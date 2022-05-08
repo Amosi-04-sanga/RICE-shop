@@ -29,6 +29,7 @@
 .errorMsg {
     color: red;
     padding: .2rem 0;
+    height: 2rem;
 }
 
 .row {

@@ -37,6 +37,9 @@ const SalesDetails = () => {
      console.log(i)
   }
 
+  const format3Dig = (num) => {
+    return Number(num).toLocaleString('en-US')
+  }
 
   return (
     <>
@@ -49,11 +52,11 @@ const SalesDetails = () => {
           </Box>) :
           (
             <div className={styles.salesContainer}>
-              <h2 className={styles.heading} >sales on: {moment(sales.createdAt).format("DD MMM, YYYY dddd")} </h2>
+              <h2 className={styles.heading} >Mauzo ya: {moment(sales.createdAt).format("DD MMM, YYYY dddd")} </h2>
               <div className={styles.salesInfo}>
-                <p><span style={{ fontWeight: "900" }} >amount</span>: {sales.amount}KG </p>
-                <p><span style={{ fontWeight: "900" }} >sales</span> {sales.sales}/= </p>
-                <p><span style={{ fontWeight: "900" }} >expenses</span> {sales.expenses}/= </p>
+                <p><span style={{ fontWeight: "900" }} >Kiasi</span>: {sales.amount}KG </p>
+                <p><span style={{ fontWeight: "900" }} >Mauzo</span> {format3Dig(sales.sales)} /= </p>
+                <p><span style={{ fontWeight: "900" }} >Mengineyo</span> {format3Dig(sales.expenses)}/= </p>
               </div>
 
               <div className={styles.borrowers}>
@@ -61,7 +64,7 @@ const SalesDetails = () => {
                   !sales.borrowers ?
                     "null" :
                     sales.borrowers.length === 0 ?
-                      "NO BORROWER" :
+                      "HAKUNA MADENI" :
                       (
                         <ul className={styles.list} >
                           {

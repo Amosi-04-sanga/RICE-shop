@@ -39,7 +39,7 @@ const PurchasesForm = () => {
 
     return (
         <div className={styles.login} >
-            <h3 className={styles.formHeading} > purchases details </h3>
+            <h3 className={styles.formHeading} > Taarifa za manunuzi </h3>
             <div className={styles.formWrapper}>
                 <form onSubmit={submitHandle} className={styles.form} autoCorrect="true" autoComplete="false" >
                     <div className={styles.row}>
@@ -48,7 +48,7 @@ const PurchasesForm = () => {
                             required
                             id="amount"
                             type="text"
-                            label="amount"
+                            label="kiasi"
                             placeholder='example 20000'
                             className={styles.input}
                             value={formData.amount}
@@ -61,7 +61,7 @@ const PurchasesForm = () => {
                             required
                             id="price"
                             type="text"
-                            label="price"
+                            label="gharama"
                             className={styles.input}
                             placeholder="example 25000000"
                             value={formData.price}
@@ -74,7 +74,7 @@ const PurchasesForm = () => {
                             required
                             id="expenses"
                             type="text"
-                            label="expenses"
+                            label="mengineyo"
                             className={styles.input}
                             placeholder="example 250000"
                             value={formData.expenses}
@@ -83,7 +83,7 @@ const PurchasesForm = () => {
                     </div>
 
                     <button type='submit' className={styles.button} >
-                        {!isSubmited ? "SEND" : "PROCESSING..."}
+                        {!isSubmited ? "TUMA" : "SUBIRI..."}
                     </button>
 
                 </form>

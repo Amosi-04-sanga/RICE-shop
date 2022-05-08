@@ -8,7 +8,8 @@ import jwt from 'jsonwebtoken'
 
 const Login = () => {
     const router = useRouter()
-
+    const [isError, setIsError] = useState(false)
+    const [message, setMessage] = useState("")
     const [formData, setFormData] = useState({
         name: "",
         password: ""
@@ -26,13 +27,17 @@ const Login = () => {
                 if (json.user) {
                     router.push("/office/data")
                 }
-
+                else {
+                    setIsError(true)
+                    setMessage("password sio sahihi!")
+                }
             })
 
     }
 
     return (
         <div className={styles.login} >
+            <p className={styles.errorMsg} > {message} </p>
             <div className={styles.formWrapper}>
                 <form onSubmit={submitHandle} className={styles.form} autoCorrect="true" autoComplete="false" >
                     <div className={styles.row}>

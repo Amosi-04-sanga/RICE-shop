@@ -35,7 +35,7 @@ const History = () => {
     return (
         <>
              < OfficeNav />
-            <h2 style={{ textAlign: "center", margin: "1rem auto" }} >sales records</h2>
+            <h2 style={{ textAlign: "center", margin: "1rem auto" }} >Records za mauzo yaliyopita</h2>
 
             <div className={styles.salesDetails}>
                 {
@@ -48,7 +48,7 @@ const History = () => {
                         records.length === 0 ?
                             (
                                 <Box sx={{ position: "fixed", color: "rebeccapurple", left: "50%", top: "50%", transform: "translate(-50%,-50%)" }}>
-                                    <h2  >NO RECORDS YET!</h2>
+                                    <h2  >HAKUNA RECORDS!</h2>
                                 </Box>
                             ) :
                             (

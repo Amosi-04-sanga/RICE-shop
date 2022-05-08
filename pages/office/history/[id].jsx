@@ -12,7 +12,7 @@ const SalesDetails = () => {
   const router = useRouter()
   const { id } = router.query
   const [records, setRecords] = useState(null)
-  
+
   useEffect(() => {
 
     const getRecords = async () => {
@@ -34,11 +34,11 @@ const SalesDetails = () => {
   }, [id])
 
   const repayHandle = (i) => {
-     console.log(i)
+    console.log(i)
   }
 
   const format3Dig = (num) => {
-     return Number(num).toLocaleString('en-US')
+    return Number(num).toLocaleString('en-US')
   }
 
   return (
@@ -52,14 +52,20 @@ const SalesDetails = () => {
           </Box>) :
           (
             <div className={styles.salesContainer}>
-              <h2 className={styles.heading} >sales on: {moment(records.createdAt).format("DD MMM, YYYY dddd")} </h2>
+              <h2 className={styles.heading} >Mauzo ya: {moment(records.createdAt).format("DD MMM, YYYY dddd")} </h2>
               <div className={styles.salesInfo}>
-                <p><span style={{ fontWeight: "900" }} >amountBought</span>: {records.amountBought} Tonnes </p>
-                <p><span style={{ fontWeight: "900" }} >amountSold</span>: {records.amountSold} Tonnes </p>
-                <p><span style={{ fontWeight: "900" }} >time spent</span>: {records.days} days </p>
-                <p><span style={{ fontWeight: "900" }} >purchases</span>: {format3Dig(records.purchases)}/= </p>
-                <p><span style={{ fontWeight: "900" }} >sales</span>: {format3Dig(records.sales)}/= </p>
-                <p><span style={{ fontWeight: "900" }} >profit</span>: {format3Dig(records.profit)}/= </p>
+                <p><span style={{ fontWeight: "900" }} >Tonnes zilizonunuliwa</span>: {records.amountBought} Tonnes </p>
+                <p><span style={{ fontWeight: "900" }} >Tonnes zilizouzwa</span>: {records.amountSold} Tonnes </p>
+                <p><span style={{ fontWeight: "900" }} >Mda</span>: {records.days} days </p>
+                <p><span style={{ fontWeight: "900" }} >Manunuzi</span>: {format3Dig(records.purchases)}/= </p>
+                <p><span style={{ fontWeight: "900" }} >Mauzo</span>: {format3Dig(records.sales)}/= </p>
+                <p><span style={{ fontWeight: "900" }} >
+                  {
+                    records.profit > 0 ?
+                      "Faida" :
+                      "Hasara"
+                  }
+                </span>: {format3Dig(Math.abs(records.profit))}/= </p>
               </div>
 
               <div className={styles.borrowers}>
@@ -71,13 +77,13 @@ const SalesDetails = () => {
                       (
                         <ul className={styles.list} >
                           {
-                            records.borrowers.map( (client, index) => (
+                            records.borrowers.map((client, index) => (
                               <li key={index} className={styles.listItem} >
-                                <p>Name: {client.name} </p>
-                                <p>Tell: {client.tell} </p>
-                                <p>Amount: {client.amount}KG </p>
-                                <p>Loan: {client.loan}/= </p>
-                                <button onClick={ () => repayHandle(index) } className={styles.button} >pay</button>
+                                <p>Jina: {client.name} </p>
+                                <p>Phone: {client.tell} </p>
+                                <p>Kiasi: {client.amount}KG </p>
+                                <p>Mkopo: {client.loan}/= </p>
+                                <button onClick={() => repayHandle(index)} className={styles.button} >pay</button>
                               </li>
                             ))
                           }

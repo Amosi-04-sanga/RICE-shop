@@ -7,16 +7,16 @@ const Nav = () => {
 
          <ul className={`${styles.links} ${styles.fullWidth}`}>
             <li>
-               <Link href="/office/data" > Data </Link>
+               <Link href="/office/data" > Jaza </Link>
             </li>
             <li>
-               <Link href="/office/records" > sales </Link>
+               <Link href="/office/records" > Mauzo </Link>
             </li>
             <li>
                <Link href="/office/history" > Records </Link>
             </li>
             <li>
-               <Link href="/" > Logout </Link>
+               <Link href="/" > Toka </Link>
             </li>
          </ul>
 

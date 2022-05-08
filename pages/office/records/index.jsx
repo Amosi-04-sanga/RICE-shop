@@ -31,7 +31,7 @@ const Records = () => {
     return (
         <div className={styles.container} >
             < OfficeNav />
-            <h2 style={{ textAlign: "center", margin: "1rem auto" }} >Dairy sales information</h2>
+            <h2 style={{ textAlign: "center", margin: "1rem auto" }} >Taarifa za mauzo ya kilasiku</h2>
 
             <div className={styles.salesDetails}>
                 {

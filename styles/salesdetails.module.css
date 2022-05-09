@@ -11,6 +11,7 @@
 .salesInfo p {
     padding: .6rem .2rem;
     position: relative;
+    white-space: nowrap;
 }
 
 .salesInfo p::before {

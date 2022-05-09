@@ -9,6 +9,8 @@ import jwt from 'jsonwebtoken';
 const Close = () => {
     const router = useRouter()
     const [password, setPassword] = useState("")
+    const [message, setMessage] = useState("")
+    const [isError, setIsError] = useState(false)
     const submitHandle = async (e: { preventDefault: () => void; }) => {
         e.preventDefault()
 
@@ -23,6 +25,10 @@ const Close = () => {
                     if (json.user) {
                         router.push("/office/close")
                     }
+                    else {
+                        setIsError(true)
+                        setMessage("password sio sahihi")
+                    }
 
                 })
         } catch (error) {
@@ -33,6 +39,7 @@ const Close = () => {
     return (
         <div className={styles.login} >
             <div className={styles.formWrapper}>
+                <p className={styles.errorMsg} > {message} </p>
                 <form onSubmit={submitHandle} className={styles.form} autoCorrect="true" autoComplete="false" >
 
                     <div className={styles.row}>

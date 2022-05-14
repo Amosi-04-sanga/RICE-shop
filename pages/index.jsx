@@ -12,7 +12,7 @@ export default function Home() {
       < Nav />
 
       <header className={styles.header} >
-        <div class={styles.overlay}>
+        <div className={styles.overlay}>
           <h1 className={styles.heading} >wauzaji wa mchele jumla na rejareja</h1>
           <p className={styles.text} >pata mchele bora kutoka mbeya kwa bei nafuu Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur.</p>
         </div>

@@ -5,7 +5,7 @@ const Nav = () => {
   return (
     <nav className={styles.nav} >
         <div className={styles.logo}>
-            <Link href="/" > MS_RICE </Link>
+            <Link href="/" > Ｎ𝐙Ҝ </Link>
         </div>
         <ul className={styles.links}>
             <li>

@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&family=Mukta&family=Noto+Serif:ital@1&family=Square+Peg&display=swap');
+
 .photo_container {
     width: 24rem;
     height: 20rem;
@@ -22,16 +25,21 @@
     overflow: hidden;
     border-radius: 0 0 85% 85% / 12%;
     margin-bottom: 2.4rem;
+    background-image: linear-gradient(135deg, #9f05ff69 10%, #fd5e086b 100%);
 }
 
 .header .overlay {
-    width: 100%;
+    width: 70%;
+    margin: auto;
     height: 100%;
     padding: 20px 0;
     text-align: center;
     color: black;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Mukta', sans-serif;
+    font-family: 'Noto Serif', serif;
+    font-family: 'Square Peg', cursive;
     text-shadow: 0 0 10px rgba(51, 51, 51, 0.34);
-    background-image: linear-gradient(135deg, #9f05ff69 10%, #fd5e086b 100%);
 
 }
 
@@ -48,3 +56,44 @@
 }
 
 
+.mainSection {
+    text-align: center;
+    width: 70vw;
+    margin: auto;
+}
+
+.mainSection svg {
+  width: 2rem;
+  height: 2rem;
+  transform: rotate(-5deg);
+}
+
+.mainSection svg {
+    fill: rgb(207, 120, 130);
+}
+
+.mainSection h2 {
+    margin: .2rem 0 1rem;
+}
+
+.services {
+    margin: 2rem 0;
+}
+.emailContact {
+    margin: .6rem auto;
+    width: 40vw;
+}
+
+.formWrapper {
+    margin: auto;
+    display: grid;
+    place-content: center;
+}
+
+.footer {
+    height: 20vh;
+    background-color: black;
+    color: wheat;
+    display: grid;
+    place-content: center;
+}

@@ -5,11 +5,6 @@
     font-family: cursive;
 }
 
-.list {
-    padding: 1rem;
-    cursor: pointer;
-    width: 70vw;
-}
 
 @media screen and (max-width: 400px) {
     .list {
@@ -17,28 +12,34 @@
     }
 }
 
-.list li {
-    margin: 1rem 0;
-    padding: .5rem;
-    background-color: rgb(195, 224, 223);
 
-}
-
-.alignLeft {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.listItem {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: decimal;
-    padding: 0 4vw;
-}
 
 .borrowers {
     color: rgb(0, 42, 255);
 }
+
+
+.customers {
+    border-collapse: collapse;
+    width: 60vw;
+    text-align: center;
+  }
+  
+  .customers td, .customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .customers tr:hover {background-color: #ddd;}
+  
+  .customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
 
 

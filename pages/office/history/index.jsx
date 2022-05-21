@@ -11,30 +11,30 @@ import moment from 'moment'
 const History = () => {
 
     const [records, setRecords] = useState(null)
-    
+
     useEffect(() => {
-      
+
         const fetchInfo = async () => {
-           try {
-               axios.get("/api/closeSales")
-               .then( doc => {
-                   const { data } = doc
-                   console.log(data)
-                   setRecords(data)
-               })
-           } catch (error) {
-               console.log(error)
-           }
-      }   
-      
-       fetchInfo()
+            try {
+                axios.get("/api/closeSales")
+                    .then(doc => {
+                        const { data } = doc
+                        console.log(data)
+                        setRecords(data)
+                    })
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchInfo()
 
     }, [])
-    
-    
+
+
     return (
         <>
-             < OfficeNav />
+            < OfficeNav />
             <h2 style={{ textAlign: "center", margin: "1rem auto" }} >Records za mauzo yaliyopita</h2>
 
             <div className={styles.salesDetails}>
@@ -52,8 +52,51 @@ const History = () => {
                                 </Box>
                             ) :
                             (
-                                <ol className={styles.list} >
-                                    {
+
+                                <table className={styles.customers}>
+                                    <thead>
+                                        <tr>
+                                            <th>S/NO</th>
+                                            <th>Tarehe</th>
+                                            <th>Madeni</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {
+                                            records.map((item, index) => (
+
+
+                                                <tr key={item.createdAt} >
+                                                    <td> {index + 1} </td>
+                                                    <td>
+                                                        <Link key={index} href={`/office/history/${item._id}`} >
+                                                            {moment(item.createdAt).format("DD MMM, YYYY")}
+                                                        </Link> </td>
+                                                    <td> {item.borrowers.length === 0 ? "" : item.borrowers.length} </td>
+
+                                                </tr>
+                                            ))
+                                        }
+
+                                    </tbody>
+
+
+                                </table>
+                            )
+                }
+            </div>
+        </>
+    )
+}
+
+export default History
+
+/* 
+
+ {
+     
+
                                         records.map((record, index) => (
                                             <Link key={index} href={`/office/history/${record._id}`} >
                                                 <li className={styles.listItem} >
@@ -66,13 +109,11 @@ const History = () => {
                                             </Link>
                                         ))
                                     }
-                                </ol>
-                            )
-                }
-            </div>
-        </>
-    )
-}
 
-export default History
 
+<tr>
+                                            <td>Alfreds Futterkiste</td>
+                                            <td>Maria Anders</td>
+                                            <td>Germany</td>
+                                        </tr>
+*/

@@ -7,7 +7,7 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
 
     if (!req.body) {
         res.statusCode = 404
-        res.send("invalid credentials!")
+        res.json({msg:"invalid credentials!"})
         return
     }
 
@@ -17,12 +17,11 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
     res.json({
          token: jwt.sign({
             user: password === process.env.CLOSE_PWD
-         }, KEY)
+         }, KEY, {expiresIn: "30d"})
      }) 
 
 
    console.log(process.env.CLOSE_PWD)
 
 }
-
 

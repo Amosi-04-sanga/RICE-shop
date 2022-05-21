@@ -6,6 +6,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import moment from 'moment'
 import styles from '../../../styles/salesdetails.module.css'
+import tablecss from '../../../styles/records.module.css'
+import Link from 'next/link';
 
 
 const SalesDetails = () => {
@@ -41,6 +43,8 @@ const SalesDetails = () => {
     return Number(num).toLocaleString('en-US')
   }
 
+  console.log(records)
+
   return (
     <>
       < OfficeNav />
@@ -52,21 +56,109 @@ const SalesDetails = () => {
           </Box>) :
           (
             <div className={styles.salesContainer}>
-              <h2 className={styles.heading} >Mauzo ya: {moment(records.createdAt).format("DD MMM, YYYY dddd")} </h2>
-              <div className={styles.salesInfo}>
-                <p><span style={{ fontWeight: "900" }} >Tonnes zilizonunuliwa</span>: {records.amountBought} Tonnes </p>
-                <p><span style={{ fontWeight: "900" }} >Tonnes zilizouzwa</span>: {records.amountSold} Tonnes </p>
-                <p><span style={{ fontWeight: "900" }} >Mda</span>: {records.days} days </p>
-                <p><span style={{ fontWeight: "900" }} >Manunuzi</span>: {format3Dig(records.purchases)}/= </p>
-                <p><span style={{ fontWeight: "900" }} >Mauzo</span>: {format3Dig(records.sales)}/= </p>
-                <p><span style={{ fontWeight: "900" }} >
-                  {
-                    records.profit > 0 ?
-                      "Faida" :
-                      "Hasara"
-                  }
-                </span>: {format3Dig(Math.abs(records.profit))}/= </p>
-              </div>
+              <h2 className={styles.heading} >Mauzo Ya Tarehe: {moment(records.createdAt).format("DD/MMM/YYYY dddd")} </h2>
+
+              <table className={tablecss.customers}>
+                <thead>
+                  <tr>
+                    <th>S/NO</th>
+                    <th>Maelezo</th>
+                    <th>Kiasi</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <tr >
+                    <td>
+                      01
+                    </td>
+                    <td>
+                      Tonnes zilizonunuliwa
+                    </td>
+                    <td>
+                      {records.amountBought} Tonnes
+                    </td>
+
+                  </tr>
+
+                  <tr >
+                    <td>
+                      02
+                    </td>
+                    <td>
+                      Tonnes zilizouzwa
+                    </td>
+                    <td>
+                      {records.amountSold} Tonnes
+                    </td>
+
+                  </tr>
+
+                  <tr >
+                    <td>
+                      03
+                    </td>
+                    <td>
+                      Mda
+                    </td>
+                    <td>
+                      {records.days} days
+                    </td>
+
+                  </tr>
+
+                  <tr >
+                    <td>
+                      04
+                    </td>
+                    <td>
+                      Manunuzi
+                    </td>
+                    <td>
+                      {format3Dig(records.purchases)}/=
+                    </td>
+
+                  </tr>
+
+                  <tr >
+                    <td>
+                      05
+                    </td>
+                    <td>
+                      Mauzo
+                    </td>
+                    <td>
+                      {format3Dig(records.sales)}/=
+                    </td>
+
+                  </tr>
+
+                  <tr >
+                    <td>
+                      06
+                    </td>
+                    <td>
+                      <p>
+                        {
+                          records.profit > 0 ?
+                            "Faida" :
+                            "Hasara"
+                        }
+                      </p>
+                    </td>
+                    <td>
+                      {format3Dig(Math.abs(records.profit))}/=
+                    </td>
+
+                  </tr>
+
+                </tbody>
+
+
+              </table>
+
+
 
               <div className={styles.borrowers}>
                 {

@@ -25,7 +25,7 @@
     overflow: hidden;
     border-radius: 0 0 85% 85% / 12%;
     margin-bottom: 2.4rem;
-    background-image: linear-gradient(135deg, #9f05ff69 10%, #fd5e086b 100%);
+    background-image: linear-gradient(135deg, #9f05ff69 2%, #fd5e086b 70%);
 }
 
 .header .overlay {
@@ -44,9 +44,9 @@
 }
 
 .heading {
-    font-size: 2rem;
     margin-bottom: 3rem;
     text-align: center;
+    font-family: cursive;
 }
 
 .text {

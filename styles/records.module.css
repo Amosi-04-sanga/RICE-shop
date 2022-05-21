@@ -1,45 +1,55 @@
-
 .salesDetails {
-    display: grid;
-    place-content: center;
-    font-family: cursive;
+  display: grid;
+  place-content: center;
+  font-family: cursive;
 }
 
 
 @media screen and (max-width: 400px) {
-    .list {
-        width: 90vw;
-    }
+  .list {
+    width: 90vw;
+  }
 }
 
 
 
 .borrowers {
-    color: rgb(0, 42, 255);
+  color: rgb(0, 42, 255);
 }
 
 
 .customers {
-    border-collapse: collapse;
-    width: 60vw;
-    text-align: center;
-  }
-  
-  .customers td, .customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .customers tr:nth-child(even){background-color: #f2f2f2;}
-  
-  .customers tr:hover {background-color: #ddd;}
-  
-  .customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
-  }
+  border-collapse: collapse;
+  width: 60vw;
+  margin: 1rem auto 4rem;
+  text-align: center;
+  font-size: small;
+}
 
 
+@media screen and (max-width: 500px) {
+  .customers {
+    width: 95vw;
+  }
+}
+
+.customers td,
+.customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.customers tr:hover {
+  background-color: #ddd;
+}
+
+.customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #04AA6D;
+  color: white;
+}

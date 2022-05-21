@@ -1,11 +1,11 @@
 .salesContainer {
-    width: 60vw;
     font-family: cursive;
     margin: 2rem auto;
 }
 
 .heading {
     margin: 1rem auto;
+    text-align: center;
 }
 
 .salesInfo p {

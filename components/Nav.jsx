@@ -4,17 +4,17 @@ import styles from '../styles/nav.module.css'
 const Nav = () => {
   return (
     <nav className={styles.nav} >
-        <div className={styles.logo}>
-            <Link href="/" > Ｎ𝚉Ҝ </Link>
-        </div>
-        <ul className={styles.links}>
-            <li>
-               <Link href="/" > Home </Link>
-            </li>
-            <li>
-               <Link href="/login" > Office </Link>
-            </li>
-        </ul>
+      <div className={styles.logo}>
+        <img width="50px" src="/logo.png" alt="logo" />
+      </div>
+      <ul className={styles.links}>
+        <li>
+          <Link href="/" > Home </Link>
+        </li>
+        <li>
+          <Link href="/login" > Office </Link>
+        </li>
+      </ul>
     </nav>
   )
 }

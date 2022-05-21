@@ -6,6 +6,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import moment from 'moment'
 import styles from '../../../styles/salesdetails.module.css'
+import tablecss from '../../../styles/records.module.css'
 
 
 const SalesDetails = () => {
@@ -34,7 +35,7 @@ const SalesDetails = () => {
   }, [id])
 
   const repayHandle = (i) => {
-     console.log(i)
+    console.log(i)
   }
 
   const format3Dig = (num) => {
@@ -53,11 +54,61 @@ const SalesDetails = () => {
           (
             <div className={styles.salesContainer}>
               <h2 className={styles.heading} >Mauzo ya: {moment(sales.createdAt).format("DD MMM, YYYY dddd")} </h2>
-              <div className={styles.salesInfo}>
-                <p><span style={{ fontWeight: "900" }} >Kiasi</span>: {sales.amount}KG </p>
-                <p><span style={{ fontWeight: "900" }} >Mauzo</span> {format3Dig(sales.sales)} /= </p>
-                <p><span style={{ fontWeight: "900" }} >Mengineyo</span> {format3Dig(sales.expenses)}/= </p>
-              </div>
+
+              <table className={tablecss.customers}>
+                <thead>
+                  <tr>
+                    <th>S/NO</th>
+                    <th>Maelezo</th>
+                    <th>Kiasi</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <tr >
+                    <td>
+                      01
+                    </td>
+                    <td>
+                    Kiasi
+                    </td>
+                    <td>
+                    {sales.amount}KG
+                    </td>
+
+                  </tr>
+
+                  <tr >
+                    <td>
+                      02
+                    </td>
+                    <td>
+                    Mauzo
+                    </td>
+                    <td>
+                    {format3Dig(sales.sales)} /=
+                    </td>
+
+                  </tr>
+
+                  <tr >
+                    <td>
+                      03
+                    </td>
+                    <td>
+                    Mengineyo
+                    </td>
+                    <td>
+                    {format3Dig(sales.expenses)}/=
+                    </td>
+
+                  </tr>
+
+                </tbody>
+
+              </table>
+
 
               <div className={styles.borrowers}>
                 {
@@ -68,13 +119,13 @@ const SalesDetails = () => {
                       (
                         <ul className={styles.list} >
                           {
-                            sales.borrowers.map( (client, index) => (
+                            sales.borrowers.map((client, index) => (
                               <li key={index} className={styles.listItem} >
                                 <p>Name: {client.name} </p>
                                 <p>Tell: {client.tell} </p>
                                 <p>Amount: {client.amount}KG </p>
                                 <p>Loan: {client.loan}/= </p>
-                                <button onClick={ () => repayHandle(index) } className={styles.button} >pay</button>
+                                <button onClick={() => repayHandle(index)} className={styles.button} >pay</button>
                               </li>
                             ))
                           }

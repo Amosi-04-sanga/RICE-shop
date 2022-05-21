@@ -65,9 +65,12 @@ const Records = () => {
                                                 <tr key={item.createdAt} >
                                                     <td> {index + 1} </td>
                                                     <td>
-                                                        <Link key={index} href={`/office/records/${item._id}`} >
-                                                            {moment(item.createdAt).format("DD MMM, YYYY")}
-                                                        </Link> </td>
+                                                        <span >
+                                                            <Link key={index} href={`/office/records/${item._id}`} >
+                                                                {moment(item.createdAt).format("DD MMM, YYYY")}
+                                                            </Link>
+                                                        </span>
+                                                    </td>
                                                     <td> {item.borrowers.length === 0 ? "0" : item.borrowers.length} </td>
 
                                                 </tr>

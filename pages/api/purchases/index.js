@@ -32,7 +32,7 @@ export default async function handler(req, res) {
           .then(res => {
             console.log(res)
           })
-          res.status(201).json(purchases)
+        res.status(201).json(purchases)
 
 
       } catch (error) {
@@ -44,19 +44,21 @@ export default async function handler(req, res) {
       try {
         await PurchasesModel.find({})
           .then(doc => {
-            doc.amount = body.amount
-            doc.price = body.price
-            doc.expenses = body.expenses
-            doc.save(error => console.log(error))
+            const purchases = doc[0]
+            purchases.amount = body.amount
+            purchases.price = body.price
+            purchases.expenses = body.expenses
+            purchases.save(error => console.log(error))
 
             res.status(200).json(doc)
           })
+
 
       } catch (error) {
         res.status(400).json(error)
       }
       break;
-      
+
 
     default:
       break;

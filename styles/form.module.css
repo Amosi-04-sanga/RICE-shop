@@ -1,17 +1,34 @@
+.openmenu {
+    display: block;
+}
+
+.closemenu {
+    display: none;
+}
+
+.openmenu, 
+.closemenu {
+    user-select: none;
+}
+
 .login {
     display: grid;
     place-content: center;
     min-height: 90vh;
 }
 
+
 .formWrapper {
     background-color: rgb(234, 199, 145);
     width: 50vw;
     padding: .2rem .8rem;
+    margin: auto;
 }
 
 .formHeading {
     margin: 1rem 0;
+    text-align: center;
+    text-transform: capitalize;
 }
 
 @media screen and (max-width: 700px) {
@@ -65,23 +82,21 @@
 .borrowersForm {
     background-color: rgb(234, 199, 145);
     padding: 1rem;
-    margin: 4rem 0 2rem;
+    margin: 0 0 2rem;
 }
 
 .toggleForm {
-    position: relative;
-    height: 13vh;
+    margin: 2rem 0;
+    text-align: center;
 }
 
 .addIcon {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 8vw;
-    height: 10vw;
+    width: 3rem;
+    height: 3rem;
     fill: rgb(88, 119, 22);
     cursor: pointer;
+    display: block;
+    margin: 1rem auto 0;
 }
 
 .showForm {
@@ -92,29 +107,38 @@
     display: none;
 }
 
-.calculator {
-    width: 3rem;
-    height: 3.2rem;
-    fill: rgba(0, 128, 0, 0.52);
+.menuWrapper {
     position: fixed;
-    left: 1px;
-    top: 2px;
+    left: 0;
+    top: 4px;
     z-index: 11;
+    background-color: rgba(219, 218, 192, .9);
+    padding: .5rem;
+}
+
+.menuWrapper li {
+    margin: 1rem 0;
+}
+
+.menuWrapper li:hover {
+   margin-left: .1rem;
+   transition: all 200ms ease;
+   cursor: pointer;
+}
+
+.listmenu {
+    width: 2.5rem;
+    height: 2rem;
+    fill: rgba(0, 128, 0, 0.52);
     cursor: pointer;
     transition: fill 200ms ease-in-out;
 }
 
-.calculator:hover {
+.listmenu:hover {
     fill: rgba(0, 128, 0, 0.6);
 }
 
-@media screen and (max-width: 480px) {
-    .calculator {
-        width: 2rem;
-        height: 2.5rem;
-    }
-}
 
 .message {
-  width: 100%;
+    width: 100%;
 }

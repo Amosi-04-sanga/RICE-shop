@@ -71,10 +71,10 @@ const SalesDetails = () => {
                       01
                     </td>
                     <td>
-                    Kiasi
+                      Kiasi
                     </td>
                     <td>
-                    {sales.amount}KG
+                      {sales.amount}KG
                     </td>
 
                   </tr>
@@ -84,10 +84,10 @@ const SalesDetails = () => {
                       02
                     </td>
                     <td>
-                    Mauzo
+                      Mauzo
                     </td>
                     <td>
-                    {format3Dig(sales.sales)} /=
+                      {format3Dig(sales.sales)} /=
                     </td>
 
                   </tr>
@@ -97,10 +97,10 @@ const SalesDetails = () => {
                       03
                     </td>
                     <td>
-                    Mengineyo
+                      Mengineyo
                     </td>
                     <td>
-                    {format3Dig(sales.expenses)}/=
+                      {format3Dig(sales.expenses)}/=
                     </td>
 
                   </tr>
@@ -115,21 +115,43 @@ const SalesDetails = () => {
                   !sales.borrowers ?
                     "null" :
                     sales.borrowers.length === 0 ?
-                      "HAKUNA MADENI" :
                       (
-                        <ul className={styles.list} >
-                          {
-                            sales.borrowers.map((client, index) => (
-                              <li key={index} className={styles.listItem} >
-                                <p>Name: {client.name} </p>
-                                <p>Tell: {client.tell} </p>
-                                <p>Amount: {client.amount}KG </p>
-                                <p>Loan: {client.loan}/= </p>
-                                <button onClick={() => repayHandle(index)} className={styles.button} >pay</button>
-                              </li>
-                            ))
-                          }
-                        </ul>
+                        <p style={{textAlign: "center"}} >HAKUNA MADENI</p>
+                      ) :
+                      (
+                        <div>
+                          <h3 style={{textAlign: "center", margin: "1rem auto"}} >taarifa za madeni</h3>
+                          <table className={tablecss.customers}>
+                            <thead>
+                              <tr>
+                                <th>S/NO</th>
+                                <th>Jina</th>
+                                <th>Namba</th>
+                                <th>kiasi</th>
+                                <th>deni</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+
+                              {
+                                sales.borrowers.map((client, index) => (
+                                  <tr key={index} className={styles.listItem} >
+                                    <td>{index + 1} </td>
+                                    <td>{client.name} </td>
+                                    <td>{client.tell} </td>
+                                    <td>{client.amount}KG </td>
+                                    <td>{client.loan}/= </td>
+                                    <td> ondoa </td>
+                                  </tr>
+                                ))
+                              }
+
+                            </tbody>
+
+                          </table>
+                        </div>
                       )
                 }
               </div>
@@ -142,3 +164,5 @@ const SalesDetails = () => {
 }
 
 export default SalesDetails
+
+

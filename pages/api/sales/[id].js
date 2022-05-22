@@ -31,7 +31,7 @@ export default async function handler(req, res) {
 
         case "PATCH":
             try {
-                const purchases = await SalesModel.findById(id)
+                const sales = await SalesModel.findById(id)
                     .then(doc => {
                         doc.amount = body.amount
                         doc.price = body.price
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
                         doc.save(error => console.log(error))
 
                     })
-                res.status(200).json(purchases)
+                res.status(200).json(sales)
 
 
             } catch (error) {

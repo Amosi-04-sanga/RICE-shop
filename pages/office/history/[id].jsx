@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import moment from 'moment'
 import styles from '../../../styles/salesdetails.module.css'
 import tablecss from '../../../styles/records.module.css'
-import Link from 'next/link';
 
 
 const SalesDetails = () => {
@@ -167,19 +166,39 @@ const SalesDetails = () => {
                     records.borrowers.length === 0 ?
                       "NO BORROWERS" :
                       (
-                        <ul className={styles.list} >
-                          {
-                            records.borrowers.map((client, index) => (
-                              <li key={index} className={styles.listItem} >
-                                <p>Jina: {client.name} </p>
-                                <p>Phone: {client.tell} </p>
-                                <p>Kiasi: {client.amount}KG </p>
-                                <p>Mkopo: {client.loan}/= </p>
-                                <button onClick={() => repayHandle(index)} className={styles.button} >pay</button>
-                              </li>
-                            ))
-                          }
-                        </ul>
+                        <div>
+                          <h3 style={{ textAlign: "center", margin: "1rem auto" }} >taarifa za madeni</h3>
+                          <table className={tablecss.customers}>
+                            <thead>
+                              <tr>
+                                <th>S/NO</th>
+                                <th>Jina</th>
+                                <th>Namba</th>
+                                <th>kiasi</th>
+                                <th>deni</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+
+                              {
+                                records.borrowers.map((client, index) => (
+                                  <tr key={index} className={styles.listItem} >
+                                    <td>{index + 1} </td>
+                                    <td>{client.name} </td>
+                                    <td>{client.tell} </td>
+                                    <td>{client.amount}KG </td>
+                                    <td>{client.loan}/= </td>
+                                    <td> ondoa </td>
+                                  </tr>
+                                ))
+                              }
+
+                            </tbody>
+
+                          </table>
+                        </div>
                       )
                 }
               </div>

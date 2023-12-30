@@ -42,13 +42,13 @@ export default function Home() {
   return (
     <div >
       <Head>
-        <title>nziku</title>
+        <title>Amos Rice</title>
       </Head>
       < Nav />
 
       <header className={styles.header} >
         <div className={styles.overlay}>
-          <h1 className={styles.heading} >NZIKU RICE INTERPRICE</h1>
+          <h1 className={styles.heading} >Amos RICE INTERPRICE</h1>
           <p className={styles.text} >Wauza mchele bora kutoka mbeya na mikoa mingine</p>
         </div>
       </header>

@@ -48,7 +48,7 @@ export default function Home() {
 
       <header className={styles.header} >
         <div className={styles.overlay}>
-          <h1 className={styles.heading} >Amos RICE INTERPRICE</h1>
+          <h1 className={styles.heading} >AMOS RICE INTERPRICE</h1>
           <p className={styles.text} >Wauza mchele bora kutoka mbeya na mikoa mingine</p>
         </div>
       </header>
